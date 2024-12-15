@@ -1,0 +1,35 @@
+name: CI/CD Pipeline for Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # # Step 3: Install project dependencies
+      # - name: Install Dependencies
+      #   run: npm install
+      #
+      # # Step 4: Build the project (if applicable)
+      # - name: Build Project
+      #   run: npm run build
+
+      # Step 5: Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          firebase deploy --only hosting
