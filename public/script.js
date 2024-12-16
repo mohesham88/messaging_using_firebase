@@ -9,12 +9,9 @@ const firebaseConfig = {
 };
 const app = firebase.initializeApp(firebaseConfig);
 
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
-
-
-
-
+console.log("Hello from script.js");
 
 const auth = firebase.auth();
 const db = firebase.firestore();
