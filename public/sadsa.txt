@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #messages {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .message p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .message .sender {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .input-group-append {
+            cursor: pointer;
+        }
+        #channel-list ul {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div id="chat-container" class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="text-center mb-4">Firebase Chat</h2>
+
+                <!-- Channel List -->
+                <div id="channel-list" class="mb-3">
+                    <h4>Available Channels</h4>
+                    <ul class="list-group" id="channel-list-ul">
+                        <!-- Dynamically populated channels will appear here -->
+                    </ul>
+                </div>
+
+                <!-- Chat Room Section -->
+                <div id="chat-room" class="mt-3">
+                    <h4 id="chat-room-title">Select a Channel to Start Chatting</h4>
+                    <div id="messages" class="list-group">
+                        <!-- Messages will appear here -->
+                    </div>
+
+                    <!-- Message Input Section -->
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" id="message-input" placeholder="Type your message...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="send-message-button">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
